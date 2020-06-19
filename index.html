@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #content{
+            display:none;
+        }
+         body{
+            background: url('black.png'); 
+           
+         }
+         #nav{
+             background-color: transparent !important;
+             margin-left:130px !important;
+         }
+         li a{
+             color:black !important;
+             border:1px solid black;
+             margin-left:10px;
+             border-radius: 30px;
+             font-family: verdana;
+         }
+         #webSiteName{
+             color:rgb(22, 16, 16);
+             font-family:'arial' ;
+             font-weight: bold;
+             margin-top:-10px;
+         }
+         #name{
+             font-size: 30px;;
+         }
+         #me{
+             width:250px;
+             border-radius: 130px;
+             border:2px solid white;
+         }
+         #title,#title1{
+             font-family:"Britannic Bold";
+             font-size:150px;
+             display: inline-block;
+         }
+         #title1{
+            font-size:50px;
+            margin-top:-100px !important;
+         }
+         .box{
+             background-color:#101010 !important;
+             width:150px;
+             height:150px;
+             border-radius: 130px;
+             position:relative;
+         }
+        
+         .box span{
+             position: absolute;
+             left:40px;
+             top:60px;
+             color:white !important;
+         }
+         .box:hover
+         {
+          
+             background-color:grey !important;
+             color:black !important
+         }
+         li a:hover{
+                background-color:white;
+                border-color:transparent;
+            }
+         #info{
+             display:none;
+         }
+         .return1 {
+             width:50px;
+             position:absolute;
+             left:255px;
+             display:none;
+             top:30px;
+             
+         }
+         .white{
+             color:white;
+         }
+         @media (max-width:412px)
+         {
+            .box{
+                height:50px;
+                margin-top:10px;
+                width:230px;
+            }
+            .box span{
+                top:10px;
+            }
+            #nav{
+                margin-left:50px !important;
+            }
+            #me{
+                margin-left:30px;
+            }
+            #title{
+                font-size: 100px;
+            }
+            #title1{
+                margin-top:-9px!important;
+            }
+            a{
+                padding-left:10px !important;
+            }
+            li{
+                margin-top:7px;
+            }
+            
+         }
+        
+        
+   </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Log In</title>
+</head>
+<body>
+    <div id=content>
+    <nav id=nav class="navbar navbar-expand-sm bg-light ml-5">
+        <ul class="navbar-nav">
+            <a id=webSiteName class="navbar-brand" href="#"><span id=name>Ramy Chargui</span><br>Student/IT</a>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Project</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class='row'>
+            <div class="col-md-4 mt-5">
+                <img id=me src="me.jpg" class="img-fluid">
+            </div>
+            <div class="col-md-7 mt-2">
+                <span id=title>Hello,</span><br>
+                <span id="title1">A bit about me:</span>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 ">
+                            <a href="#info"><div id="box1"class="box"><span id="innerBox1">RESUME</span></a></div><img class=return1 src="return.png">
+                        </div>
+                        <div class="col-md-4">
+                            <a href="#info"><div  id="box2" class="box"><span id="innerBox2">MY WORK</span></a></div><img class=return1 src="return.png">
+                        </div>
+                        <div class="col-md-4">
+                            <a href="#info"> <div  id="box3" class="box"><span id="innerBox3">MY SKILLS</span></a></div><img class=return1 src="return.png">
+                        </div>
+                    </div>
+                </div>
+                <p id="info" style="margin-top:20px;"><span class="white">First Name:</span>Ramy<br><span class="white">Second Name:</span>Chargui <br>
+                    <span class="white">Birthday:</span>7/12/1999<br><span  class="white">Country:</span>Tunisia<br><span  class="white">City:</span>Houmet Souk , Djerba</p>
+            </div>
+        </div>
+    </div>
+</div>
+<canvas></canvas>
+ <script>
+     window.addEventListener('load',function(){
+         $('#content').show(1000)
+         $('#box1').hide()
+         $('#box2').hide()
+         $('#box3').hide()
+         $('#innerBox1').hide()
+         $('#innerBox2').hide()
+         $('#innerBox3').hide()
+         $('#box1').show(3000)
+         $('#innerBox1').show(4000)
+         $('#box2').show(4000)
+         $('#innerBox2').show(3000)
+         $('#box3').show(5000)
+         $('#innerBox3').show(4000)
+     })
+     var x = window.matchMedia("(max-width: 400px)")
+    $('#box1').click(function(){
+        $('#info').fadeIn(1000)
+        if(x.matches)
+        {
+            $('#box2').slideUp(1000)
+            $('#box3').slideUp(1000)
+            $('.return1').first().css('display','block')
+            $('.return1').click(function(){
+                console.log('work')
+                $('#box2').slideDown(1000)
+                $('#box3').slideDown(1000)
+                $('.return1').first().css('display','none')
+            })
+            
+            
+            
+        }
+    })
+    $('#box2').click(function(){
+        $('#info').fadeIn(2000)
+        if(x.matches)
+        {
+            $('#box1').slideUp(1000)
+            $('#box3').slideUp(1000)
+            $('.return1').eq(1).css('display','block')
+            $('.return1').click(function(){
+                console.log('work')
+                $('#box1').slideDown(1000)
+                $('#box3').slideDown(1000)
+                $('.return1').eq(1).css('display','none')
+            })
+            
+        }
+    })
+
+    $('#box3').click(function(){
+        $('#info').html('<table style="color:white"><tr><td>HTML:</td><td><progress id="file" value="60" max="100"> 60% </progress></td></tr><tr><td> CSS:</td><td><progress id="file" value="40" max="100"> 40% </progress></td></tr><tr><td>JavaScript:</td><td><progress id="file" value="50" max="100"> 50% </progress></td></tr><tr><td>C:</td><td><progress id="file" value="70" max="100"> 70% </progress></td></tr><tr><td>PHP:</td><td><progress id="file" value="10" max="100"> 10% </progress></td></tr>')
+        $('#info').fadeIn(2000)
+        if(x.matches)
+        {
+            $('#box2').slideUp(1000)
+            $('#box1').slideUp(1000)
+            $('.return1').last(1).css('display','block')
+            $('.return1').click(function(){
+                console.log('work')
+                $('#box2').slideDown(1000)
+                $('#box1').slideDown(1000)
+                $('.return1').last().css('display','none')
+            })
+            
+        }
+    })
+   
+
+</script>
+</html>
